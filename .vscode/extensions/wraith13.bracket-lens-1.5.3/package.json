@@ -1,0 +1,464 @@
+{
+	"name": "bracket-lens",
+	"displayName": "Bracket Lens",
+	"description": "Show bracket header on closing bracket.",
+	"icon": "images/bracketlenshex.128.png",
+	"version": "1.5.3",
+	"publisher": "wraith13",
+	"license": "SEE LICENSE IN LICENSE_1_0.txt",
+	"engines": {
+		"vscode": "^1.61.0"
+	},
+	"bugs": {
+		"url": "https://github.com/wraith13/bracket-lens-vscode/issues"
+	},
+	"homepage": "https://github.com/wraith13/bracket-lens-vscode",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/wraith13/bracket-lens-vscode.git"
+	},
+	"categories": [
+		"Other"
+	],
+	"keywords": [
+		"bracket",
+		"code",
+		"lens"
+	],
+	"activationEvents": [
+		"onStartupFinished"
+	],
+	"main": "./out/extension.js",
+	"browser": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "bracketLens.toggleMute",
+				"title": "%bracketLens.toggleMute.title%",
+				"category": "Bracket Lens"
+			},
+			{
+				"command": "bracketLens.toggleMuteAll",
+				"title": "%bracketLens.toggleMuteAll.title%",
+				"category": "Bracket Lens"
+			},
+			{
+				"command": "bracketLens.updateBrackets",
+				"title": "%bracketLens.updateBrackets.title%",
+				"category": "Bracket Lens"
+			},
+			{
+				"command": "bracketLens.reportProfile",
+				"title": "%bracketLens.reportProfile.title%",
+				"category": "Bracket Lens"
+			}
+		],
+		"configuration": [
+			{
+				"title": "Bracket Lens",
+				"properties": {
+					"bracketLens.mode": {
+						"type": "string",
+						"default": "on-save",
+						"enum": [
+							"none",
+							"manual",
+							"on-save",
+							"auto"
+						],
+						"description": "%bracketLens.mode.description%",
+						"enumDescriptions": [
+							"%bracketLens.mode.none.description%",
+							"%bracketLens.mode.manual.description%",
+							"%bracketLens.mode.on-save.description%",
+							"%bracketLens.mode.auto.description%"
+						],
+						"scope": "language-overridable"
+					},
+					"bracketLens.debug": {
+						"type": "boolean",
+						"default": false,
+						"description": "%bracketLens.debug.description%",
+						"scope": "window"
+					},
+					"bracketLens.color": {
+						"type": "string",
+						"default": "#8888AAAA",
+						"$ref": "vscode://schemas/textmate-colors#/definitions/colorGroup",
+						"description": "%bracketLens.color.description%",
+						"scope": "language-overridable"
+					},
+					"bracketLens.prefix": {
+						"type": "string",
+						"default": " <- ",
+						"description": "%bracketLens.prefix.description%",
+						"scope": "language-overridable"
+					},
+					"bracketLens.unmatchBracketsPrefix": {
+						"type": "string",
+						"default": " 🚫 <- ",
+						"description": "%bracketLens.unmatchBracketsPrefix.description%",
+						"scope": "language-overridable"
+					},
+					"bracketLens.line": {
+						"type": "string",
+						"default": "both-line-numbers",
+						"enum": [
+							"none",
+							"start-line-number",
+							"end-line-number",
+							"both-line-numbers"
+						],
+						"description": "%bracketLens.line.description%",
+						"enumDescriptions": [
+							"%bracketLens.line.none.description%",
+							"%bracketLens.line.start-line-number.description%",
+							"%bracketLens.line.end-line-number.description%",
+							"%bracketLens.line.both-line-numbers.description%"
+						],
+						"scope": "language-overridable"
+					},
+					"bracketLens.maxBracketHeaderLength": {
+						"type": "integer",
+						"default": 64,
+						"minimum": 8,
+						"maximum": 256,
+						"description": "%bracketLens.maxBracketHeaderLength.description%",
+						"scope": "language-overridable"
+					},
+					"bracketLens.minBracketScopeLines": {
+						"type": "integer",
+						"default": 5,
+						"minimum": 2,
+						"maximum": 80,
+						"description": "%bracketLens.minBracketScopeLines.description%",
+						"scope": "language-overridable"
+					},
+					"bracketLens.languageConfiguration": {
+						"type": "object",
+						"properties": {
+							"ignoreCase": {
+								"type": "boolean",
+								"default": false
+							},
+							"comments": {
+								"type": "object",
+								"properties": {
+									"block": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"required": [
+												"opening",
+												"closing"
+											],
+											"properties": {
+												"opening": {
+													"type": "string"
+												},
+												"closing": {
+													"type": "string"
+												}
+											}
+										}
+									},
+									"line": {
+										"type": "array",
+										"items": {
+											"type": "string"
+										}
+									}
+								}
+							},
+							"brackets": {
+								"type": "object",
+								"properties": {
+									"symbol": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"required": [
+												"opening",
+												"closing"
+											],
+											"properties": {
+												"opening": {
+													"type": "string"
+												},
+												"closing": {
+													"type": "string"
+												},
+												"headerMode": {
+													"type": "string",
+													"default": "smart",
+													"enum": [
+														"before",
+														"smart",
+														"inner"
+													]
+												},
+												"inters": {
+													"type": "array",
+													"items": {
+														"type": "string"
+													}
+												}
+											}
+										}
+									},
+									"word": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"required": [
+												"opening",
+												"closing"
+											],
+											"properties": {
+												"opening": {
+													"type": "string"
+												},
+												"closing": {
+													"type": "string",
+													"default": "end"
+												},
+												"headerMode": {
+													"type": "string",
+													"default": "inner",
+													"enum": [
+														"before",
+														"smart",
+														"inner"
+													]
+												},
+												"inters": {
+													"type": "array",
+													"items": {
+														"type": "string"
+													}
+												}
+											}
+										}
+									}
+								}
+							},
+							"strings": {
+								"type": "object",
+								"properties": {
+									"inline": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"required": [
+												"opening",
+												"closing",
+												"escape"
+											],
+											"properties": {
+												"opening": {
+													"type": "string"
+												},
+												"closing": {
+													"type": "string"
+												},
+												"escape": {
+													"type": "array",
+													"items": {
+														"type": "string"
+													}
+												}
+											}
+										}
+									},
+									"multiline": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"required": [
+												"opening",
+												"closing",
+												"escape"
+											],
+											"properties": {
+												"opening": {
+													"type": "string"
+												},
+												"closing": {
+													"type": "string"
+												},
+												"escape": {
+													"type": "array",
+													"items": {
+														"type": "string"
+													}
+												}
+											}
+										}
+									}
+								}
+							},
+							"terminators": {
+								"type": "array",
+								"items": {
+									"type": "string"
+								}
+							},
+							"ignoreSymbols": {
+								"type": "array",
+								"items": {
+									"type": "string"
+								}
+							}
+						},
+						"default": {
+							"ignoreCase": false,
+							"comments": {
+								"block": [
+									{
+										"opening": "/*",
+										"closing": "*/"
+									}
+								],
+								"line": [
+									"//"
+								]
+							},
+							"brackets": {
+								"symbol": [
+									{
+										"opening": "(",
+										"closing": ")",
+										"headerMode": "smart",
+										"inters": []
+									},
+									{
+										"opening": "[",
+										"closing": "]",
+										"headerMode": "smart",
+										"inters": []
+									},
+									{
+										"opening": "{",
+										"closing": "}",
+										"headerMode": "smart",
+										"inters": []
+									}
+								],
+								"word": []
+							},
+							"strings": {
+								"inline": [
+									{
+										"opening": "\"",
+										"closing": "\"",
+										"escape": [
+											"\\\\",
+											"\\\""
+										]
+									},
+									{
+										"opening": "'",
+										"closing": "'",
+										"escape": [
+											"\\\\",
+											"\\'"
+										]
+									}
+								],
+								"multiline": [
+									{
+										"opening": "`",
+										"closing": "`",
+										"escape": [
+											"\\\\",
+											"\\`"
+										]
+									}
+								]
+							},
+							"terminators": [
+								";",
+								","
+							],
+							"ignoreSymbols": [
+								"\\//"
+							]
+						},
+						"description": "%bracketLens.languageConfiguration.description%",
+						"scope": "language-overridable"
+					}
+				}
+			}
+		],
+		"configurationDefaults": {
+			"[plaintext]": {
+				"bracketLens.mode": "manual"
+			},
+			"[csv]": {
+				"bracketLens.mode": "manual"
+			},
+			"[tsv]": {
+				"bracketLens.mode": "manual"
+			},
+			"[markdown]": {
+				"bracketLens.mode": "manual"
+			},
+			"[html]": {
+				"bracketLens.mode": "manual"
+			},
+			"[python]": {
+				"bracketLens.mode": "manual"
+			},
+			"[xml]": {
+				"bracketLens.mode": "manual"
+			},
+			"[xsl]": {
+				"bracketLens.mode": "manual"
+			},
+			"[ignore]": {
+				"bracketLens.mode": "manual"
+			}
+		}
+	},
+	"extensionKind": [
+		"ui"
+	],
+	"scripts": {
+		"pretest": "npm run compile-web",
+		"vscode:prepublish": "npm run package-web",
+		"compile-web": "webpack",
+		"watch-web": "webpack --watch",
+		"package-web": "webpack --mode production --devtool hidden-source-map",
+		"lint": "eslint source --ext ts",
+		"run-in-browser": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=. ."
+	},
+	"dependencies": {
+		"@wraith13/vscel": "^0.0.53"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.61.0",
+		"@types/webpack-env": "^1.16.2",
+		"@typescript-eslint/eslint-plugin": "^4.31.1",
+		"@typescript-eslint/parser": "^4.31.1",
+		"@vscode/test-web": "^0.0.13",
+		"assert": "^2.0.0",
+		"eslint": "^7.32.0",
+		"glob": "^7.2.0",
+		"process": "^0.11.10",
+		"ts-loader": "^9.2.5",
+		"typescript": "^4.4.3",
+		"webpack": "^5.52.1",
+		"webpack-cli": "^4.8.0"
+	},
+	"__metadata": {
+		"id": "d10697c0-6bdd-4b6f-8e09-f92f578168ca",
+		"publisherId": "e92c9e02-367b-406d-a982-5c08f564588a",
+		"publisherDisplayName": "wraith13",
+		"targetPlatform": "undefined",
+		"isApplicationScoped": false,
+		"updated": false,
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1694397897738,
+		"preRelease": false
+	}
+}
