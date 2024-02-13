@@ -1,0 +1,75 @@
+0 verbose cli /usr/local/bin/node /usr/local/bin/npm
+1 info using npm@9.6.7
+2 info using node@v18.17.1
+3 timing npm:load:whichnode Completed in 1ms
+4 timing config:load:defaults Completed in 1ms
+5 timing config:load:file:/usr/local/lib/node_modules/npm/npmrc Completed in 0ms
+6 timing config:load:builtin Completed in 1ms
+7 timing config:load:cli Completed in 0ms
+8 timing config:load:env Completed in 0ms
+9 timing config:load:file:/Users/adipatirjm/Library/Caches/typescript/5.3/.npmrc Completed in 0ms
+10 timing config:load:project Completed in 0ms
+11 timing config:load:file:/Users/adipatirjm/.npmrc Completed in 0ms
+12 timing config:load:user Completed in 0ms
+13 timing config:load:file:/usr/local/etc/npmrc Completed in 0ms
+14 timing config:load:global Completed in 0ms
+15 timing config:load:setEnvs Completed in 1ms
+16 timing config:load Completed in 4ms
+17 timing npm:load:configload Completed in 4ms
+18 timing npm:load:mkdirpcache Completed in 0ms
+19 timing npm:load:mkdirplogs Completed in 0ms
+20 verbose title npm install types-registry@latest
+21 verbose argv "install" "--ignore-scripts" "types-registry@latest"
+22 timing npm:load:setTitle Completed in 5ms
+23 timing config:load:flatten Completed in 2ms
+24 timing npm:load:display Completed in 2ms
+25 verbose logfile logs-max:10 dir:/Users/adipatirjm/.npm/_logs/2024-02-07T04_38_14_801Z-
+26 verbose logfile /Users/adipatirjm/.npm/_logs/2024-02-07T04_38_14_801Z-debug-0.log
+27 timing npm:load:logFile Completed in 5ms
+28 timing npm:load:timers Completed in 0ms
+29 timing npm:load:configScope Completed in 0ms
+30 timing npm:load Completed in 17ms
+31 timing arborist:ctor Completed in 0ms
+32 silly logfile start cleaning logs, removing 1 files
+33 timing idealTree:init Completed in 11ms
+34 silly logfile done cleaning log files
+35 timing arborist:ctor Completed in 0ms
+36 http fetch GET 200 https://registry.npmjs.org/types-registry 443ms (cache revalidated)
+37 timing idealTree:userRequests Completed in 447ms
+38 silly idealTree buildDeps
+39 silly fetch manifest types-registry@0.1.682
+40 silly placeDep ROOT types-registry@0.1.682 REPLACE for:  want: 0.1.682
+41 timing idealTree:#root Completed in 3ms
+42 timing idealTree:node_modules/types-registry Completed in 0ms
+43 timing idealTree:buildDeps Completed in 3ms
+44 timing idealTree:fixDepFlags Completed in 0ms
+45 timing idealTree Completed in 463ms
+46 timing reify:loadTrees Completed in 463ms
+47 timing reify:diffTrees Completed in 0ms
+48 silly reify moves {}
+49 timing reify:retireShallow Completed in 1ms
+50 timing reify:createSparse Completed in 0ms
+51 timing reify:loadBundles Completed in 0ms
+52 silly audit bulk request {
+52 silly audit   '@popperjs/core': [ '2.11.8' ],
+52 silly audit   '@types/bootstrap': [ '5.2.10' ],
+52 silly audit   'types-registry': [ '0.1.682' ]
+52 silly audit }
+53 timing reify:unpack Completed in 1ms
+54 timing reify:unretire Completed in 0ms
+55 timing build:queue Completed in 0ms
+56 timing build:deps Completed in 0ms
+57 timing build Completed in 0ms
+58 timing reify:build Completed in 1ms
+59 timing reify:trash Completed in 0ms
+60 timing reify:save Completed in 3ms
+61 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 250ms
+62 timing auditReport:getReport Completed in 251ms
+63 silly audit report {}
+64 timing auditReport:init Completed in 0ms
+65 timing reify:audit Completed in 251ms
+66 timing reify Completed in 717ms
+67 timing command:install Completed in 720ms
+68 verbose exit 0
+69 timing npm Completed in 859ms
+70 info ok

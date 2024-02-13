@@ -1,0 +1,65 @@
+2023-04-21T14:03:39.248Z [debug] [extension] Deactivate CMakeTools
+Project instance
+2023-03-12T01:55:09.126Z [debug] [variant] Constructing VariantManager
+2023-03-12T01:55:09.126Z [debug] [main] Constructing new CMakeProject instance
+2023-03-12T01:55:09.126Z [debug] [main] Starting CMake Tools second-phase init
+2023-03-12T01:55:09.167Z [info] [variant] Loaded new set of variants
+2023-03-12T01:55:09.171Z [debug] [kit] Not reading non-existent kits file: /Users/adipatirjm/.local/share/CMakeTools/cmake-tools-kits.json
+2023-03-12T01:55:09.174Z [debug] [kit] Not reading non-existent kits file: /Users/adipatirjm/Tugas Bu Iyat/.vscode/cmake-kits.json
+2023-03-12T01:55:09.176Z [debug] [main] CMakeProject instance initialization complete.
+2023-03-12T01:55:09.184Z [info] [kit] Detected kits definition version change from undefined to 2. Silently scanning for kits.
+2023-03-12T01:55:09.199Z [debug] [kitsController] Rescanning for kits
+2023-03-12T01:55:09.199Z [debug] [kit] Scanning for Kits on system
+2023-03-12T01:55:09.200Z [debug] [kit] Scanning directory /opt/homebrew/bin for compilers
+2023-03-12T01:55:09.200Z [debug] [kit] Scanning directory /opt/homebrew/sbin for compilers
+2023-03-12T01:55:09.200Z [debug] [kit] Scanning directory /usr/local/bin for compilers
+2023-03-12T01:55:09.200Z [debug] [kit] Scanning directory /System/Cryptexes/App/usr/bin for compilers
+2023-03-12T01:55:09.200Z [debug] [kit] Scanning directory /bin for compilers
+2023-03-12T01:55:09.200Z [debug] [kit] Scanning directory /usr/sbin for compilers
+2023-03-12T01:55:09.201Z [debug] [kit] Scanning directory /sbin for compilers
+2023-03-12T01:55:09.201Z [debug] [kit] Scanning directory /usr/bin for compilers
+2023-03-12T01:55:09.201Z [debug] [kit] Skipping scan of not existing path undefined\LLVM\bin
+2023-03-12T01:55:09.201Z [debug] [kit] Found 0 kits in directory undefined\LLVM\bin
+2023-03-12T01:55:09.204Z [debug] [kit] Found 0 kits in directory /opt/homebrew/bin
+2023-03-12T01:55:09.204Z [debug] [kit] Found 0 kits in directory /opt/homebrew/sbin
+2023-03-12T01:55:09.204Z [debug] [kit] Found 0 kits in directory /System/Cryptexes/App/usr/bin
+2023-03-12T01:55:09.205Z [debug] [kit] Found 0 kits in directory /usr/local/bin
+2023-03-12T01:55:09.207Z [debug] [kit] Found 0 kits in directory /bin
+2023-03-12T01:55:09.208Z [debug] [kit] Found 0 kits in directory /sbin
+2023-03-12T01:55:09.212Z [debug] [kit] Found 0 kits in directory /usr/sbin
+2023-03-12T01:55:09.215Z [debug] [kit] Testing Clang binary: /usr/bin/clang
+2023-03-12T01:55:09.215Z [info] [proc] Executing command: /usr/bin/clang -v
+2023-03-12T01:55:09.219Z [debug] [kit] Testing GCC binary: /usr/bin/gcc
+2023-03-12T01:55:09.219Z [info] [proc] Executing command: /usr/bin/gcc -v
+2023-03-12T01:55:09.222Z [debug] [kit] Testing GCC binary: /usr/bin/llvm-gcc
+2023-03-12T01:55:09.223Z [info] [proc] Executing command: /usr/bin/llvm-gcc -v
+2023-03-12T01:55:09.234Z [debug] [main] Not starting CMake driver: no kit selected
+2023-03-12T01:55:09.242Z [debug] [kit] Detected Clang compiler: /usr/bin/clang
+2023-03-12T01:55:09.242Z [debug] [kit] Detected Clang compiler: /usr/bin/clang
+2023-03-12T01:55:09.244Z [debug] [kit] Bad GCC binary. "/usr/bin/llvm-gcc -v" reports version:  output: Apple clang version 14.0.0 (clang-1400.0.29.202)
+Target: arm64-apple-darwin22.3.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+
+2023-03-12T01:55:09.244Z [debug] [kit] Bad GCC binary. "/usr/bin/gcc -v" reports version:  output: Apple clang version 14.0.0 (clang-1400.0.29.202)
+Target: arm64-apple-darwin22.3.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+
+2023-03-12T01:55:09.244Z [debug] [kit] Found 1 kits in directory /usr/bin
+2023-03-12T01:55:09.244Z [info] [kit] Found Kit: Clang 14.0.0 arm64-apple-darwin22.3.0
+2023-03-12T01:55:09.245Z [debug] [kitsController] Saving kits to /Users/adipatirjm/.local/share/CMakeTools/cmake-tools-kits.json
+2023-03-12T01:55:09.245Z [debug] [kitsController] Saving new kits to /Users/adipatirjm/.local/share/CMakeTools/cmake-tools-kits.json
+2023-03-12T01:55:46.616Z [debug] [main] Not starting CMake driver: no kit selected
+2023-03-12T01:58:27.496Z [debug] [main] Not starting CMake driver: no kit selected
+2023-03-12T01:59:14.913Z [debug] [main] Not starting CMake driver: no kit selected
+2023-03-12T02:01:58.993Z [debug] [main] Not starting CMake driver: no kit selected
+2023-03-12T02:02:00.530Z [debug] [main] Not starting CMake driver: no kit selected
+2023-03-12T02:02:00.712Z [debug] [main] Not starting CMake driver: no kit selected
+2023-03-12T02:02:14.162Z [debug] [main] Not starting CMake driver: no kit selected
+2023-03-12T04:00:06.021Z [debug] [main] Not starting CMake driver: no kit selected
+2023-03-12T04:02:13.019Z [debug] [main] Not starting CMake driver: no kit selected
+2023-03-12T04:02:13.024Z [debug] [main] Not starting CMake driver: no kit selected
+2023-03-12T04:02:17.008Z [debug] [main] Not starting CMake driver: no kit selected
+2023-03-12T04:04:59.580Z [debug] [main] Not starting CMake driver: no kit selected
+2023-03-12T04:05:02.191Z [debug] [extension] Deactivate CMakeTools

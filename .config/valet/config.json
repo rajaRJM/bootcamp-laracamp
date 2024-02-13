@@ -1,0 +1,9 @@
+{
+    "tld": "dev",
+    "loopback": "127.0.0.1",
+    "paths": [
+        "/Users/adipatirjm/.config/valet/Sites",
+        "/Users/adipatirjm/sites",
+        "/Users/adipatirjm/laracamp"
+    ]
+}
